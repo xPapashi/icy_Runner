@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -9,11 +10,15 @@ public class Player_Movement : MonoBehaviour
     public float Speed = 3;
     public Rigidbody rb;
 
+    bool isDead = false;
+
     float horizontalInput;
     public float horizontalMultiplier = 2;
 
     private void FixedUpdate()
     {
+        //Preventing player from moving if dead
+        if (isDead) return;
         MovePlayer();
     }
 
@@ -21,6 +26,11 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
         GetInput();
+
+        if (transform.position.y < -5)
+        {
+            UnAlive();
+        }
     }
 
     void MovePlayer()
@@ -40,5 +50,18 @@ public class Player_Movement : MonoBehaviour
     {
         //Check for horizontal input from player
         horizontalInput = Input.GetAxis("Horizontal");
+    }
+
+    public void UnAlive()
+    {
+        //Set player to dead
+        isDead = true;
+
+        //Restart game and load new scene
+        Invoke("GameRestart", 2);
+    }
+
+    void GameRestart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
