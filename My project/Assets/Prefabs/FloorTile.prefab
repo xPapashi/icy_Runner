@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8255574406907721899, guid: 51534ce4b5d3978469ddb055b0d1b22e, type: 3}
+  collectiblePrefab: {fileID: 7489911136440718406, guid: c710dbc9f24c7da44b31bedbdeb4e419, type: 3}
+  collectibleAmount: 2
 --- !u!1 &8200070745797170865
 GameObject:
   m_ObjectHideFlags: 0
