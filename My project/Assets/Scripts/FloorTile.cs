@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class FloorTile : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
-    public GameObject collectiblePrefab;
+    [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] GameObject collectiblePrefab;
 
     public int collectibleAmount = 10;
     TileSpawn tileSpawn;
@@ -13,17 +13,15 @@ public class FloorTile : MonoBehaviour
     {
         //Locate and return the object for tile spawn
         tileSpawn = GameObject.FindObjectOfType<TileSpawn>();
-        SpawnObstacle();
-        SpawnCollectibles();
     }
 
     void OnTriggerExit(Collider other)
     {
-        tileSpawn.SpawnTile();
+        tileSpawn.SpawnTile(true);
         Destroy(gameObject, 2);
     }
 
-    void SpawnObstacle()
+    public void SpawnObstacle()
     {
         //Randomly spawn obstacle on the three given points
         int obstacleIndex = Random.Range(2, 5);
@@ -33,7 +31,7 @@ public class FloorTile : MonoBehaviour
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
 
-    void SpawnCollectibles()
+    public void SpawnCollectibles()
     {
         for (int i = 0; i < collectibleAmount; i++)
         {

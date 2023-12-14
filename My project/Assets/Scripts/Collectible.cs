@@ -15,7 +15,7 @@ public class Collectible : MonoBehaviour
             return;
         }
 
-        Debug.Log("Interacted with " + other.gameObject.name);
+        // Debug.Log("Interacted with " + other.gameObject.name);
 
         if (other.gameObject.name != "PlayerObj")
         {

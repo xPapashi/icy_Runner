@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  SpeedMultiplier: 0.1
   rb: {fileID: 1912533938}
   horizontalMultiplier: 1.5
 --- !u!114 &963194230
@@ -598,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d39a69c262a3344ab5d763bf3cc525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   scoreText: {fileID: 1792439182}
+  playerMovement: {fileID: 963194229}
 --- !u!1 &1695562155
 GameObject:
   m_ObjectHideFlags: 0

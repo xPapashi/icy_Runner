@@ -6,13 +6,18 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public int score;
+    int score;
     public static GameManager inst;
-    public TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] Player_Movement playerMovement;
 
     public void IncrementScore() {
+        //Increase score
         score++;
+        //Update Score Text
         scoreText.text = "Score: " + score;
+        //Increase Player Movement
+        playerMovement.Speed += playerMovement.SpeedMultiplier;
     }
 
     void Awake() {

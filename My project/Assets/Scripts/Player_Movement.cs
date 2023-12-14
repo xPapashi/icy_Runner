@@ -8,12 +8,13 @@ public class Player_Movement : MonoBehaviour
 {
     //Variables
     public float Speed = 3;
-    public Rigidbody rb;
+    public float SpeedMultiplier = 0.1f;
+    [SerializeField] Rigidbody rb;
 
     bool isDead = false;
 
     float horizontalInput;
-    public float horizontalMultiplier = 2;
+    [SerializeField] float horizontalMultiplier = 2;
 
     private void FixedUpdate()
     {
